@@ -50,9 +50,9 @@ function inputWord(wordInput, shiftValue, direction) {
     input.forEach((element) => {
       // Check for Space
       if (element !== " ") {
-        // Check alphabet index with "element"(letter of input word) and apply cypher
+        // Check alphabet index with "element"(letter of input word)
         newValue = (alphabet.indexOf(element) - shiftValue + 26) % 26;
-        console.log(newValue);
+        // Push new letter into array
         progress.push(alphabet[newValue]);
       } else {
         // If space push space
@@ -65,7 +65,6 @@ function inputWord(wordInput, shiftValue, direction) {
     input.forEach((element) => {
       if (element !== " ") {
         newValue = (alphabet.indexOf(element) + shiftValue) % 26;
-        console.log(newValue);
         progress.push(alphabet[newValue]);
       } else {
         progress.push(" ");
@@ -78,6 +77,7 @@ function inputWord(wordInput, shiftValue, direction) {
   console.log(`Cipher word: ${cipher}`);
 }
 
+// Input Message, Number of Ciphers, Direction (left or right)
 inputWord("A hi Z", 1, "right");
 
 /*
