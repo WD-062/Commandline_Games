@@ -47,11 +47,11 @@ function inputWord(wordInput, shiftValue, direction) {
   // Check direction of Cipher ("left" or nothing for right)
   if (direction == "left") {
     // Go over each letter
-    input.forEach((element) => {
+    input.forEach((letter) => {
       // Check for Space
-      if (element !== " ") {
-        // Check alphabet index with "element"(letter of input word)
-        newValue = (alphabet.indexOf(element) - shiftValue + 26) % 26;
+      if (letter !== " ") {
+        // Check alphabet index with each letter of input word
+        newValue = (alphabet.indexOf(letter) - shiftValue + 26) % 26;
         // Push new letter into array
         progress.push(alphabet[newValue]);
       } else {
@@ -62,9 +62,9 @@ function inputWord(wordInput, shiftValue, direction) {
   }
   // Same as above but for other direction
   else {
-    input.forEach((element) => {
-      if (element !== " ") {
-        newValue = (alphabet.indexOf(element) + shiftValue) % 26;
+    input.forEach((letter) => {
+      if (letter !== " ") {
+        newValue = (alphabet.indexOf(letter) + shiftValue) % 26;
         progress.push(alphabet[newValue]);
       } else {
         progress.push(" ");
@@ -77,10 +77,15 @@ function inputWord(wordInput, shiftValue, direction) {
   console.log(`Cipher word: ${cipher}`);
 }
 
+// process.argv
+const args = process.argv.slice(2);
+// console.log(args);
+
 // Input Message, Number of Ciphers, Direction (left or right)
-inputWord("A hi Z", 1, "right");
+inputWord(args[0], args[1], args[2]);
 
 /*
+// Old version
 // Caesar cipher by Marco Czirpek
 // Plain alphabet array
 const alphabet = [
