@@ -38,9 +38,10 @@ let progress = [];
 // final cipher array
 let cipher;
 
-function inputWord(wordInput, shiftValue, direction) {
+function inputWord(wordInput, shiftValueStr, direction) {
   // Show original word
   console.log(`Input word: ${wordInput}`);
+  const shiftValue = Number(shiftValueStr);
   // Split and Uppercase word and put into empty array
   input = wordInput.toUpperCase().split("");
 
@@ -51,8 +52,7 @@ function inputWord(wordInput, shiftValue, direction) {
       // Check for Space
       if (letter !== " ") {
         // Check alphabet index with each letter of input word
-        newValue =
-          (Number(alphabet.indexOf(letter)) - Number(shiftValue) + 26) % 26;
+        newValue = (alphabet.indexOf(letter) - shiftValue + 26) % 26;
         // Push new letter into array
         progress.push(alphabet[newValue]);
       } else {
@@ -65,7 +65,7 @@ function inputWord(wordInput, shiftValue, direction) {
   else {
     input.forEach((letter) => {
       if (letter !== " ") {
-        newValue = Number(alphabet.indexOf(letter) + Number(shiftValue)) % 26;
+        newValue = (alphabet.indexOf(letter) + shiftValue) % 26;
         progress.push(alphabet[newValue]);
       } else {
         progress.push(" ");
