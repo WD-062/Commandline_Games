@@ -51,7 +51,8 @@ function inputWord(wordInput, shiftValue, direction) {
       // Check for Space
       if (letter !== " ") {
         // Check alphabet index with each letter of input word
-        newValue = (alphabet.indexOf(letter) - shiftValue + 26) % 26;
+        newValue =
+          (Number(alphabet.indexOf(letter)) - Number(shiftValue) + 26) % 26;
         // Push new letter into array
         progress.push(alphabet[newValue]);
       } else {
@@ -64,7 +65,7 @@ function inputWord(wordInput, shiftValue, direction) {
   else {
     input.forEach((letter) => {
       if (letter !== " ") {
-        newValue = (alphabet.indexOf(letter) + shiftValue) % 26;
+        newValue = Number(alphabet.indexOf(letter) + Number(shiftValue)) % 26;
         progress.push(alphabet[newValue]);
       } else {
         progress.push(" ");
