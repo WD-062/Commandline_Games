@@ -1,22 +1,12 @@
 // Rock Paper Scissors by Marco Czirpek
-/* 
-Win conditions (if):
-Rock > Scissors
-Scissors > Paper
-Paper > Rock
-Same element
 
-Computer choose math()
-rock 3.33
-paper 3.33
-scissors 3.33
-
-
-*/
 // Choose weapon for computer (between 0 - 2)
 const weapon = ["rock", "paper", "scissors"];
 
-function wins(inputPlayer) {
+function wins(inputPlayerRaw) {
+  // Lowercase input Player
+  const inputPlayer = inputPlayerRaw.toLowerCase();
+
   // Computer getting number and weapon
   const getNumber = Math.floor(Math.random() * 3);
   const inputComputer = weapon[getNumber];
@@ -36,7 +26,10 @@ function wins(inputPlayer) {
     console.log(`${boilerText} Player WINS.`);
   } else if (inputPlayer == "paper" && inputComputer == "rock") {
     console.log(`${boilerText} Player WINS.`);
-  } else {
+  }
+
+  // Win condition Computer
+  else {
     console.log(`${boilerText} Computer WINS.`);
   }
 }
@@ -44,5 +37,5 @@ function wins(inputPlayer) {
 // process.argv
 const args = process.argv.slice(2);
 
-// Input Message, Number of Ciphers, Direction (left or right)
+// Input Message
 wins(args[0]);
