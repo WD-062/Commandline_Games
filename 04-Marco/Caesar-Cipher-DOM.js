@@ -78,21 +78,13 @@ function inputWord(wordInput, shiftValueStr, direction) {
 
   // Put split word back together and cl cipher word
   const cipherWord = (cipher) => {
-    const p = document.createElement("p");
-    p.textContent = cipher;
-    cipherResult.appendChild(p);
+    cipherResult.textContent = cipher;
   };
 
   cipher = progress.join("");
+  progress = [];
   cipherWord(cipher);
 }
-
-// // process.argv
-// const args = process.argv.slice(2);
-// // console.log(args);
-
-// // Input Message, Number of Ciphers, Direction (left or right)
-// inputWord(args[0], args[1], args[2]);
 
 inputForm.addEventListener("submit", (event) => {
   event.preventDefault();
