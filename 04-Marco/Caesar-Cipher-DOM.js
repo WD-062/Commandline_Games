@@ -42,8 +42,13 @@ let progress = [];
 let cipher;
 
 function inputWord(wordInput, shiftValueStr, direction) {
-  cipherResult.textContent = "";
-  // Show original word
+  // Check if all inputs are complete
+  if (!wordInput || !shiftValueStr || !direction) {
+    cipherResult.textContent = "Please fill in all fields.";
+    cipherResult.style.color = "red";
+    return;
+  }
+
   const shiftValue = Number(shiftValueStr);
   // Split and Uppercase word and put into empty array
   input = wordInput.toUpperCase().split("");
@@ -78,6 +83,7 @@ function inputWord(wordInput, shiftValueStr, direction) {
 
   // Put split word back together and cl cipher word
   const cipherWord = (cipher) => {
+    cipherResult.style.color = "black";
     cipherResult.textContent = cipher;
   };
 
