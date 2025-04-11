@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div
+      class="m-5 bg-white p-6 rounded-lg shadow-lg text-center w-full md:w-96">
+      <div class="mb-4">
+        <h2 class="text-2xl font-bold">Rock Paper Scissors</h2>
+        <h3 class="text-xl font-semibold mb-2 mt-5">Score</h3>
+        <div class="flex justify-between mt-2">
+          <div>User: <span id="user-score">0</span></div>
+          <div>Computer: <span id="computer-score">0</span></div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold mb-2">Choose:</h3>
+        <div id="selection" class="flex justify-around gap-3">
+          <button class="bg-blue-400 text-white py-2 px-4 rounded" id="rock">
+            Rock
+          </button>
+          <button class="bg-green-400 text-white py-2 px-4 rounded" id="paper">
+            Paper
+          </button>
+          <button class="bg-red-400 text-white py-2 px-4 rounded" id="scissors">
+            Scissors
+          </button>
+        </div>
+      </div>
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold mb-2">Result:</h3>
+        <div id="result" class="bg-gray-200 py-4 rounded">No result yet</div>
+      </div>
+      <button
+        class="bg-purple-500 text-white py-2 px-4 rounded mt-4"
+        id="reset-button">
+        Reset Score
+      </button>
+    </div>
+    <div
+      class="m-5 bg-white p-6 rounded-lg shadow-lg text-center w-full md:w-96">
+      <h2 class="text-2xl font-bold">Caesar Cipher</h2>
+      <h3 class="text-xl font-semibold mb-2 mt-5">Input here:</h3>
+      <form id="word-form" action="" method="get" class="">
+        <input
+          type="text"
+          id="input"
+          name="input"
+          placeholder="Input words here"
+          class="bg-gray-200 py-4 rounded text-center w-full my-2" />
+        <input
+          type="number"
+          id="shiftNumber"
+          name="shiftNumber"
+          placeholder="Input Shift Value here"
+          class="bg-gray-200 py-4 rounded text-center w-full my-2" />
+        <input
+          type="text"
+          id="direction"
+          name="direction"
+          placeholder="'Left' or 'Right' Shift?"
+          class="bg-gray-200 py-4 rounded text-center w-full my-2" />
+        <input
+          type="submit"
+          value="Cipher Word"
+          id="send-word"
+          class="bg-black text-white py-2 px-4 rounded mt-4" />
+      </form>
+      <div class="mb-4 mt-3">
+        <h3 class="text-xl font-semibold mb-2">Result:</h3>
+        <div id="resultC" class="bg-gray-200 py-4 rounded">
+          No word submitted yet
+        </div>
+      </div>
+    </div>
+    <script src="Rock-Paper-Scissors-DOM.js"></script>
+    <script src="Caesar-Cipher-DOM.js"></script>
+  </body>
+</html>
