@@ -3,26 +3,35 @@
 // let words = userText.split(" ").toLowerCase();
 // console.log(words);
 
-const words = process.argv.slice(2);
-console.log(typeof words);
+const words = process.argv[2].toLowerCase().split(" ");
 console.log(words);
+let sentence = [];
 
 const vowels = ["a", "e", "i", "o", "u"];
 
-for (let i = 0; i < words.length; i++);
+for (let i = 0; i < words.length; i++) {
+    let firstLetter = words[i][0];
+    let secondLetter = words[i][1];
 
-let firstLetter = words[i][0];
-let secondLetter = words[i][1];
-
-if (!firstLetter.includes(vowel) && secondLetter.includes(vowel)) {
-    let pigWord1 = words[i].slice(1) + words[i][0].toLowerCase() + "ay";
-    console.log(pigWord1);
-} else if (!firstLetter.includes(vowel) && !secondLetter.includes(vowel)) {
-    let pigWord2 = words[i].slice(2) + words[i][(0, 1)].toLowerCase() + "ay";
-    console.log(pigWord2);
-} else if (firstLetter.includes(vowel)) {
-    let pigWord3 = words[i] + "way";
-    console.log(pigWord3);
-} else {
-    console.log("Please enter a valid text!");
+    if (!vowels.includes(firstLetter) && vowels.includes(secondLetter)) {
+        let pigWord1 = words[i].slice(1) + words[i][0] + "ay";
+        sentence.push(pigWord1);
+    } else if (
+        !vowels.includes(firstLetter) &&
+        !vowels.includes(secondLetter)
+    ) {
+        let pigWord2 = words[i].slice(2) + words[i].slice(0, 2) + "ay";
+        sentence.push(pigWord2);
+    } else if (vowels.includes(firstLetter)) {
+        let pigWord3 = words[i] + "way";
+        sentence.push(pigWord3);
+    } else {
+        sentence.push("Please enter a valid text!");
+    }
 }
+
+console.log(sentence.join(" "));
+
+// if (words.forEach((word) => {
+
+// }))
