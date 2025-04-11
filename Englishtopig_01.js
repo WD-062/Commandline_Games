@@ -1,24 +1,26 @@
+function translatePigLatin(word) {
+  const vowel = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
 
-function translatePigLatin(str) {
-  const vowel = ["a", "e", "i", "o", "u"];
-  str = str.toLowerCase();
-
-  if (vowel.includes(str[0])) {
-    return str + "way";
-  } else {
-    const firstVowel = [...str].findIndex((letter) => vowel.includes(letter));
-    if (firstVowel === -1) {
-      return str + "ay";
-    }
-    const start = str.slice(0, firstVowel);
-    const end = str.slice(firstVowel);
-    return end + start + "ay";
+  //if word start with vowel return an end way
+  if (vowel.includes(word[0])) {
+    return word + "way";
   }
+
+  //check first and secound letter both are consonants
+  if (!vowel.includes(word[0]) && !vowel.includes(word[1])) {
+    return word.slice(2) + word.slice(0, 2) + "Ay";
+  }
+
+  // if word start with a consonant
+  return word.slice(1) + word[0] + "ay";
 }
+
+// get words from command line
 const args = process.argv.slice(2);
-if (args.lenth === 0) {
-  console.log("Please Enter Value");
+if (args.length === 0) {
+  console.log("Please Enter a words");
   process.exit(1);
 }
-const translate = args.map(translatePigLatin).join(' ');
-console.log("Pig Latin: " ,translate);
+// translate each word ofo array
+const translate = args.map(translatePigLatin).join(" ");
+console.log("Pig Latin: ", translate);
