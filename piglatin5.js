@@ -3,7 +3,16 @@
 // let words = userText.split(" ").toLowerCase();
 // console.log(words);
 
-const words = process.argv[2].toLowerCase().split(" ");
+// const words = process.argv[2].toLowerCase().split(" ");
+// console.log(words);
+// let sentence = [];
+
+let words = process.argv[2];
+if (!words || words.trim().length === 0) {
+    console.log("Please enter a text!");
+    process.exit();
+}
+words = words.toLowerCase().split(" ");
 console.log(words);
 let sentence = [];
 
@@ -25,13 +34,7 @@ for (let i = 0; i < words.length; i++) {
     } else if (vowels.includes(firstLetter)) {
         let pigWord3 = words[i] + "way";
         sentence.push(pigWord3);
-    } else {
-        sentence.push("Please enter a valid text!");
     }
 }
 
 console.log(sentence.join(" "));
-
-// if (words.forEach((word) => {
-
-// }))
